@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-import sys;
-
 def execFunctionWithCombination(elementsList, combinationRetrieved, numberToCompare):
     """
     Funzione per eseguire delle funzioni specifiche sulla combinazione trovata
@@ -68,11 +66,7 @@ def getAllCombination(elementsList = [], combElements = [], group = 1, level = 0
 print("Combinations init...\n");
 
 #TODO: prendere l'elenco di numeri e del numero da confrontare da un csv
-elements_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
-result = getAllCombination(elements_list, [], 7, 0, 7);
 
 #TODO: ottimizzazione, provo a sommare le combinazioni correnti per ogni
 #ciclo, se sono maggiori del numero cercato esco e procedo con la prossima
 #combinazione
-
-sys.exit(1);
