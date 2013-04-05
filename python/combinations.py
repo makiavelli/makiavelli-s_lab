@@ -2,7 +2,7 @@
 
 def execFunctionWithCombination(elementsList, combinationRetrieved, numberToCompare):
     """
-    Funzione per eseguire delle funzioni specifiche sulla combinazione trovata
+    Funzione per elaborare la combinazione trovata
     combinationRetrieved: combination retrieved (es [1,1,2]) (default [])
     functionToExec: function to exec up this combination retrieved (es closure
     with print statement) (default print closure)
@@ -21,6 +21,9 @@ def execFunctionWithCombination(elementsList, combinationRetrieved, numberToComp
     if(total == numberToCompare):
         print("questi elementi sommati: "+str(combinationRetrieved)+" ("+str(matchElements)+") matchano con il valore: "+str(numberToCompare));
         #TODO: scrivere il risultato in un file (ogni riga va appesa al file)
+
+    if(not numberToCompare):
+        print(str(combinationRetrieved));
 
     return 1;
 
