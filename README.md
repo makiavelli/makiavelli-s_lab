@@ -1,4 +1,4 @@
-makiavelli-s_lab
+makiavelli's lab
 ================
 
-This is the fucking makiavelli's lab.
+This is the makiavelli's fucking lab.
