@@ -15,7 +15,7 @@ for i in range(1, 4)
 endfor
 
 "Numbers type
-let num = -0x28 "\-40 in decimal
+let num = -0x28 "\-40 decimal
 echo "print numbers are always in decimal: " num
 
 "Playing with vars
