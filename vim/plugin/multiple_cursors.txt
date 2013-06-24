@@ -13,7 +13,7 @@ How to play with multiple cursors plugin
 The script works in this way
 ----------------------------
 
-First of all will be split the current window, like this:
+First of all current window will be split, like this:
 
 ---- Select some positions with <F6> ... ---
   123456...
