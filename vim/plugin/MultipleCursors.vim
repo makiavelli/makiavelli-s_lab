@@ -6,14 +6,15 @@
 "	GetCursorXY() -> function to get current coords of cursor
 "	SaveCursorXY() -> function to save the current cursor position into coords window
 
-
 "Global vars
-"	g:cursor_list_bufnr
+	" base window buffer id
+	let g:base_window_buffer_id = winbufnr(0)
 
 function! MultipleCursors()
 	" - splitting current window
 
 	8new
+	" saving new coords window number
 	let g:cursor_list_bufnr = winbufnr(0)
 endfunction
 call MultipleCursors()
@@ -26,22 +27,36 @@ endfunction
 "call GetCursorXY()
 
 function! GetSavedCoords()
-	"Function to retrieve the buffer from the coords window
+	" Function to retrieve the buffer from the coords window
 
 	" - switching to previously coords window buffer (g:cursor_list_bufnr)
 	" - read all line with getline(1, \"$\")
+	" - switching to previously window
 	" - return list of all lines
 
-	if !exists("s:cursor_coords")
-		let s:cursor_coords = 0
+	" clear var to saving the cursor coords
+	if !exists("l:cursor_coords")
+		let l:cursor_coords = []
 	endif
-	"TODO: se non si riesce a leggere il contenuto della finestra, il buffer va salvato
-	let s:cursor_coords = getbufline(bufwinnr(g:cursor_list_bufnr)), 1, "$")
-	echo "buffer id of coords saved: " . g:cursor_list_bufnr
-	echo "related window numer: " . bufwinnr(g:cursor_list_bufnr)
-	echo "buffer retrieved: " . s:cursor_coords
+	
+	" saving current windows number
+	" let g:current_window_number = winnr()
 
-	return 1
+	" switching to coord list window
+	exe bufwinnr(g:cursor_list_bufnr) . "wincmd w"
+	
+	" let s:cursor_coords = getbufline(bufwinnr(g:cursor_list_bufnr)), 1, "$")
+	" s:cursor_coords = getline(1, \"$")
+	" retrieving all coords from buffer
+	let l:cursor_coords = getline(1, "$")
+	" echo \"buffer id of coords saved: " . g:cursor_list_bufnr
+	" echo \"related window numer: " . bufwinnr(g:cursor_list_bufnr)
+	" echo \"coords: " . s:cursor_coords
+
+	" switching to previously window
+	exe bufwinnr(g:base_window_buffer_id) . "wincmd w"
+
+	return l:cursor_coords
 endfunction
 
 function! SaveCursorXY()
