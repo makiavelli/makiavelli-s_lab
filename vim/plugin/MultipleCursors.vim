@@ -161,8 +161,18 @@ function! SaveCursorXY()
 endfunction
 "call SaveCursorXY()
 
+function! getCommonText()
+
+	" TODO: moving to common text window
+	" TODO: saving all text into a local var
+	" TODO: moving to base window
+
+endfunction
+
 function! WriteCommonText()
 	" Function to write common text in all of saved coords
+	" TODO: retrieving common text
+	" TODO: loop inside all cursor coords and write common text in every coord
 endfunction
 
 function! ClearMultipleCursors()
