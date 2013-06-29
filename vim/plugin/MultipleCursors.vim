@@ -161,22 +161,74 @@ function! SaveCursorXY()
 endfunction
 "call SaveCursorXY()
 
-function! getCommonText()
+function! GetCommonText()
+	" Function to retrieve common text
 
-	" TODO: moving to common text window
-	" TODO: saving all text into a local var
-	" TODO: moving to base window
+	" moving to common text window
+	exe bufwinnr(GetCommonTextWindowBufferId()) . "wincmd w"
 
+	" retrieving common text (only the first line)
+	if !exists("l:common_text")
+		let l:common_text = ""
+	endif
+	let l:common_text = getline(1)
+
+	" moving to base window
+	exe bufwinnr(GetBaseWindowBufferId()) . "wincmd w"
+
+	return l:common_text
 endfunction
 
 function! WriteCommonText()
 	" Function to write common text in all of saved coords
-	" TODO: retrieving common text
-	" TODO: loop inside all cursor coords and write common text in every coord
+
+	" TODO: for a corret writing the coords must be reordered, from biggest to smaller, in this way the coords
+	" 	number continue to be consistent
+
+	" retrieving common text
+	if !exists("l:common_text")
+		let l:common_text = ""
+	endif
+	let l:common_text = GetCommonText()
+
+	" loopping inside all cursor coords and write common text in every coord
+	for coord in GetSavedCoords()
+		if coord
+			call WriteStrOnCoordinates(l:common_text, coord)
+			" echo \"common text: " .  l:common_text
+			" echo coord
+		endif
+	endfor
+endfunction
+
+function! WriteStrOnCoordinates(stringToWrite, coordinates)
+	" Function to write the string 'stringToWrite' starting from the coordinates 'coordinates'
+
+	" split coordinates string 'row,col', inside a list
+	if !exists("l:single_coordinates_list")
+		let l:single_coordinates_list = []
+	endif
+	let l:single_coordinates_list = split(a:coordinates, ',')
+
+	" switching to base window
+	exe bufwinnr(GetBaseWindowBufferId()) . "wincmd w"
+
+	"echo \"Writing of " . a:stringToWrite
+	"echo l:single_coordinates_list[0]
+	"echo l:single_coordinates_list[1]
+	"echo \"-----------------"
+
+	" moving cursor to column and row retrieved
+	call setpos(".", [0, l:single_coordinates_list[0], l:single_coordinates_list[1], 0])
+
+
+	" writing string 'stringToWrite' starting from column and row retrieved
+	exe "normal i" . a:stringToWrite . "\<Esc>" 
+	
 endfunction
 
 function! ClearMultipleCursors()
-	" Function to clear coords window/buffer and common text window/buffer
+	" TODO: Function to clear coords window/buffer and common text window/buffer
 endfunction
 
 function! InitMultipleCursorPlugin()
