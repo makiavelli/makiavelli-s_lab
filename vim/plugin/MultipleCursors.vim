@@ -125,6 +125,70 @@ function! GetSavedCoords()
 	return l:cursor_coords
 endfunction
 
+	" Functions to cast list of coords inside dictionary and order key and value of the new dictionary
+function! CastCoordsListIntoDictionary()
+	" Function to cast list of coords inside dictionary
+
+	" retrieving all saved coords
+	if !exists("l:coords_list")
+		let l:coords_list = []
+	endif
+	let l:cursor_coords = GetSavedCoords()
+
+	" casting list of coords into dictionary, like this:
+	" ['137,1', '123,12', '137,5', '112,9', '137,8']
+	"
+	" ------------------- TO -----------------------
+	"
+	" { '137' : [12, 8, 1], '123' : [12], '112' : [9] }
+	" in shortly, all rows become the keys of a dictionary, every row contain a list of cols.
+	" both keys and list, respectively rows cols, are sorted in descending order,
+	" this ensures the consistency of the coords saved
+
+	if !exists("l:coords_dictionary")
+		let l:coords_dictionary = {}
+	endif
+
+	" casting list to dictionary
+	for coord in l:cursor_coords
+		if coord
+			"[0] row, [1] col
+			let l:single_coordinate_list = split(coord, ',')
+
+			" init the key with row and list of cols related to the row
+			if !exists("l:coords_dictionary[l:single_coordinate_list[0]]")
+				let l:coords_dictionary[l:single_coordinate_list[0]] = []
+			endif
+
+			" filling rows with every col found, this will produce a list of rows for every col
+			" es. '173' : [1,32,7]
+			let l:coords_dictionary[l:single_coordinate_list[0]] = add(l:coords_dictionary[l:single_coordinate_list[0]], l:single_coordinate_list[1])
+		endif
+	endfor
+
+	return l:coords_dictionary
+endfunction
+
+function! OrderCoordsDictionary(coordsDictionary)
+	" Function to order a coords dictionary to ensures the consistency of the coords saved
+
+	" TODO: order coords dictionary
+	echo a:coordsDictionary
+
+	return a:coordsDictionary
+endfunction
+
+function! CastAndOrderCoordsList()
+	" Function to cast coords list into dictionary and orders keys and value
+
+	if !exists("l:coords_dictionary_ordered")
+		let l:coords_dictionary_ordered = {}
+	endif
+	let l:coords_dictionary_ordered =  OrderCoordsDictionary(CastCoordsListIntoDictionary())
+
+	return l:coords_dictionary_ordered
+endfunction
+
 function! SaveCursorXY()
 	" Function to write (or append) the cursor X(col) and Y(row) inside coords buffer
 
