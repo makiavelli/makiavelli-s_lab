@@ -1,0 +1,23 @@
+
+costruire un sito composto da almeno 4 pagine utilizzzando uno schema di navigazione a scelta
+(menu' orizzontale, verticale, schema ad albero con pulsanti di ritorno alla home page...)
+
+specifiche di progettazione:
+
+* creare una cartella contenente le pagine web del sito con sottocartelle immagini, audio, materiali,
+ video...(tenere conto del pathname dei file; ad es. <imgsrc=immagini/file.jpg"/)
+
+*prevedere
+
+- una homepage (index.htm) che conterrà il titolo del tema assegnato, un' introduzione sul contenuto da approfondire
+ e i link alle pagine di approfondimento
+
+- altre pagine web di approfondimento (paginadue.htm, paginatre.htm,...) con un collegamento per tornare alla homepage
+
+* i nomi dei file devono possibilmente essere composti da lettere minuscole, senza spazi e senza
+ lettere accentate (es. classe _2d.htm)
+
+* in ogni pagina deve sempre comparire il titolo (tag title)
+
+* prevedere un footer con nome e cognome dell'autore, la classe, il proprio indirizzo e-mail,
+ oppure prevedere la pagina web per i contatti
