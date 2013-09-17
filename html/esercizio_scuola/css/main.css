@@ -4,20 +4,17 @@
 	width: 100%;
 }
 .navigation-menu-container #navigation { width: 100%; margin: 0 auto; }
-.navigation-menu-container #navigation ul li { float: left; margin-top: 27px; width: 20%; text-align: center; }
+.navigation-menu-container #navigation ul li { 
+	float: left;
+	margin-top: 28px;
+	text-align: center;
+	width: 20%;
+}
 .navigation-menu-container #navigation ul li a { color: white; font-size: 20px; font-weight: bold; }
 /************ Page navigation style end ************/
 /************ Page title style ************/
 b { font-weight: bold; }
 a { color: #042960; text-decoration: none; }
-hr {
-	background: none repeat scroll 0 0 #A7A7A7;
-	border: 0 none;
-	clear: both;
-	color: #D9D9D9;
-	height: 1px;
-	margin-bottom: 25px;
-}
 .align-center { text-align: center; }
 .display-none { display: none; }
 .min-height { min-height: 400px; }
@@ -88,7 +85,4 @@ ul.ul-styled li {
 .description-block-container > div { float: left; }
 .single-block-60 { width: 60%; }
 .single-block-40 { width: 40%; }
-
-
-
 /************ End Body style ************/

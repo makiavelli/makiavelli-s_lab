@@ -1,4 +1,4 @@
-/************ Global style ************/
+/************ Header style ************/
 html * { font-family: helvetica,arial; }
 html { 
 	background: rgb(249,249,249); /* Old browsers */
@@ -22,7 +22,8 @@ body { width: 100%; }
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
 	width: 100%;
 	height: 75px;
+	margin-top: 30px;
 }
 #footer { width: 100%; height: 150px; }
 .page { width: 1024px; margin: 0 auto; }
-/************ Header and navigation style end ************/
+/************ Header style end ************/
