@@ -1,24 +1,13 @@
 /************ Body style ************/
+
 /************ Page navigation style ************/
-.navigation-menu-container { 
-	width: 100%;
-}
-.navigation-menu-container #navigation { width: 100%; margin: 0 auto; }
-.navigation-menu-container #navigation ul li { 
-	float: left;
-	margin-top: 28px;
-	text-align: center;
-	width: 20%;
-}
-.navigation-menu-container #navigation ul li a { color: white; font-size: 20px; font-weight: bold; }
+.navigation-menu-container { width: 100%; }
+.navigation-menu-container { width: 100%; margin: 0 auto; }
+.navigation-menu-container ul li { float: left;	margin-top: 28px; text-align: center; width: 20%; }
+.navigation-menu-container ul li a { color: white; font-size: 20px; font-weight: bold; }
+.navigation-menu-container ul li.active-element a { color: #9D9D9D; }
+
 /************ Page navigation style end ************/
-/************ Page title style ************/
-b { font-weight: bold; }
-a { color: #042960; text-decoration: none; }
-.align-center { text-align: center; }
-.display-none { display: none; }
-.min-height { min-height: 400px; }
-/* End page title style */
 
 .main-content { clear: both; width: 100%; display: inline-block; }
 
@@ -70,9 +59,14 @@ h6 {
 	margin-bottom: 2.33em;
 	font-weight: bold;
 }
-
 /************ Title style end ************/
 
+/************ Page title style ************/
+b { font-weight: bold; }
+a { color: #042960; text-decoration: none; }
+.align-center { text-align: center; }
+.display-none { display: none; }
+.min-height { min-height: 400px; }
 ul.ul-styled { list-style: disc outside none; }
 ul.ul-styled li {
     color: #4B4B4B;
@@ -85,4 +79,6 @@ ul.ul-styled li {
 .description-block-container > div { float: left; }
 .single-block-60 { width: 60%; }
 .single-block-40 { width: 40%; }
+/************ Page title style ************/
+
 /************ End Body style ************/
